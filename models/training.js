@@ -6,7 +6,7 @@ const TrainingSchema = new Schema({
   name: {
     type: String,
     trim: true,
-    required: "Name of Exercise is Required"
+    required: "Training Name is Required"
   },
   difficulty: {
     type: String,
