@@ -20,6 +20,8 @@ app.use(express.json());
 
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/fit_witnessdb',
  { useNewUrlParser: true, useUnifiedTopology: true });
+    useCreateIndex: true,
+    useFindAndModify: false,
  mongoose.connection
   .once('open', () => console.log('Good!'))
   .on('error', (error) => {
