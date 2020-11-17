@@ -17,13 +17,10 @@ app.use(express.json());
 
 
 
-
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/fit_witnessdb',
- { useNewUrlParser: true, useUnifiedTopology: true });
-    useCreateIndex: true,
-    useFindAndModify: false,
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/fit_witnessdb',  
+{ useNewUrlParser: true, useUnifiedTopology: true });
  mongoose.connection
-  .once('open', () => console.log('Good!'))
+  .once('open', () => console.log('Good to go!'))
   .on('error', (error) => {
       console.warn('Error', error);
   });
@@ -46,3 +43,34 @@ db.Fitness.create({name: "Fitness Training Plan"})
   app.listen(PORT, () => {
     console.log(`App running on port ${PORT}!`);
   });
+
+// mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/fit_witnessdb',{ 
+
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true,
+//     useCreateIndex: true,
+//     useFindAndModify: false,
+//  mongoose.connection
+//   .once('open', () => console.log('Good!'))
+//   .on('error', (error) => {
+//       console.warn('Error', error);
+//   });
+
+//   db.Fitness.create({name: "Fitness Training Plan"})
+//   .then(dbFitness => {
+//     console.log('log from inside dbFitness.create '+dbFitness);
+//   })
+//   .catch( ({message}) => {
+//     console.log('this is the error:' +message);
+//   });
+
+//   app.get("/", (req,res) =>{
+//     console.log('GET root route');
+//     res.sendFile(path.join(__dirname, "./public/index.html"));
+//   })
+//   app.use(require("./controllers/training"));
+//   app.use(require("./controllers/fitness"));
+  
+//   app.listen(PORT, () => {
+//     console.log(`App running on port ${PORT}!`);
+//   });
